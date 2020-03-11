@@ -4,6 +4,13 @@
 /////////////////LUCES
 void turnLedOn(int ledN, int pause){        //Enciende y apaga el led "ledN" con una pausa de "pause"ms
   digitalWrite(ledN, HIGH);
+  if (ledN == 7) {
+    tone (buzzer, notes[0], 50);
+  } else if (ledN == 4) {
+    tone (buzzer, notes[1], 50);
+  } else if (ledN == 5) {
+    tone (buzzer, notes[2], 50);
+  } else tone (buzzer, notes[3], 50);
   delay(pause);
   digitalWrite(ledN, LOW);
   delay(pause);
@@ -44,6 +51,7 @@ void ledsGameOver(){
   turnLedOn(5, 100);
   turnLedOn(6, 100);
   turnLedOn(4, 100);  
+  lcd_texts(false);
 }
 /**********************************************************************************************/
 void ledsWin(){
